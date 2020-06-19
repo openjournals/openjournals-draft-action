@@ -15,6 +15,7 @@ runs:
   using: docker
   image: 'docker://tarleb/paperdraft:latest'
   env:
+    GIT_SHA: $GITHUB_SHA
     JOURNAL: ${{ inputs.journal }}
   args:
     - ${{ inputs.paper-path }}
