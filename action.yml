@@ -2,7 +2,7 @@ name: Open Journals PDF Generator
 description: Create a draft PDF for an Open Journals paper
 inputs:
   journal:
-    description: target journal, must be either "joss" or "jose"
+    description: Target journal, must be either "joss" or "jose"
     required: false
     default: joss
   paper-path:
