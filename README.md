@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build draft PDF
-        uses: tarleb/openjournals-draft-action@master
+        uses: openjournals/openjournals-draft-action@master
         with:
           journal: joss
           paper-path: paper.md
