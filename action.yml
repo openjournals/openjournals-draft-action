@@ -13,7 +13,7 @@ inputs:
     default: 'paper.md'
 runs:
   using: docker
-  image: 'docker://openjournals/paperdraft:latest'
+  image: 'docker://openjournals/inara:latest'
   env:
     GIT_SHA: $GITHUB_SHA
     JOURNAL: ${{ inputs.journal }}
