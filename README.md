@@ -9,6 +9,7 @@ Usage
 Add a file `.github/workflows/draft-pdf.yml` to your repo.
 
 ``` yaml
+name: Draft PDF
 on: [push]
 
 jobs:
