@@ -35,8 +35,30 @@ jobs:
           path: paper.pdf
 ```
 
-This will build the paper.pdf and make it available as an artifact
+This will build the `paper.pdf` and make it available for download as an _Actions artifact_
 after each build.
+
+If you store your `paper` files in the same repository as your source code or any other files that are not included in the final rendering, you may want to limit the scope of when this action is triggered, to avoid duplicating the same PDF when unrelated push is made. You can do so, by replacing `on: [push]` in your `draft-pdf.yml` with:
+
+``` yaml
+on:
+  push:
+    paths:
+      - paper/**
+      - .github/workflows/draft-pdf.yml
+```
+to capture all changes to your paper files in `paper` directory, or with:
+``` yaml
+on:
+  push:
+    paths:
+      - paper.md
+      - paper.bib
+      - assets/img1.png
+      - assets/img2.png
+      - .github/workflows/draft-pdf.yml
+```
+if you need to specify individual files.
 
 If you would like to store the PDF in your repository after the build, you need to (1) enable repository write access for your Actions under _Settings/Actions/General/WorkflowPermissions_ and (2) add a step which will `git add` and `git commit` it within the workflow. You can do the latter manually, or wiht a predefined action, e.g. `EndBug/add-and-commit`, by appending `steps` in `draft-pdf.yml` with:
 
