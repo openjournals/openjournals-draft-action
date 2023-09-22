@@ -9,6 +9,7 @@ Usage
 Add a file `.github/workflows/draft-pdf.yml` to your repo.
 
 ``` yaml
+name: Draft PDF
 on: [push]
 
 jobs:
@@ -59,6 +60,16 @@ on:
 ```
 if you need to specify individual files.
 
+If you would like to store the PDF in your repository after the build, you need to (1) enable repository write access for your Actions under _Settings/Actions/General/WorkflowPermissions_ and (2) add a step which will `git add` and `git commit` it within the workflow. You can do the latter manually, or wiht a predefined action, e.g. `EndBug/add-and-commit`, by appending `steps` in `draft-pdf.yml` with:
+
+``` yaml
+    - name: Commit PDF to repository
+      uses: EndBug/add-and-commit@v9
+      with:
+        message: '(auto) Paper PDF Draft'
+        # This should be the path to the paper within your repo.
+        add: 'paper.pdf' # 'paper/*.pdf' to commit all PDFs in the paper directory
+```              
 
 Inputs
 ------
