@@ -17,7 +17,7 @@ jobs:
     name: Paper Draft
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build draft PDF
         uses: openjournals/openjournals-draft-action@master
         with:
@@ -25,7 +25,7 @@ jobs:
           # This should be the path to the paper within your repo.
           paper-path: paper.md
       - name: Upload
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: paper
           # This is the output path where Pandoc will write the compiled
@@ -44,7 +44,7 @@ The build can be configured by setting the following inputs.
 
 ### `journal`
 
-The journal for to which this paper will be submitted. May be
+The journal to which this paper will be submitted. May be
 either `joss` or `jose`. Defaults to `joss`.
 
 ### `paper-path`
