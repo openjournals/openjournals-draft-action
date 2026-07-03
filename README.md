@@ -60,7 +60,7 @@ on:
 ```
 if you need to specify individual files.
 
-If you would like to store the PDF in your repository after the build, you need to (1) enable repository write access for your Actions under _Settings/Actions/General/WorkflowPermissions_ and (2) add a step which will `git add` and `git commit` it within the workflow. You can do the latter manually, or wiht a predefined action, e.g. `EndBug/add-and-commit`, by appending `steps` in `draft-pdf.yml` with:
+If you would like to store the PDF in your repository after the build, you need to (1) enable repository write access for your Actions under _Settings/Actions/General/WorkflowPermissions_ and (2) add a step which will `git add` and `git commit` it within the workflow. You can do the latter manually, or with a predefined action, e.g. `EndBug/add-and-commit`, by appending `steps` in `draft-pdf.yml` with:
 
 ``` yaml
     - name: Commit PDF to repository
