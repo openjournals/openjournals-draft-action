@@ -18,7 +18,7 @@ jobs:
     name: Paper Draft
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Build draft PDF
         uses: openjournals/openjournals-draft-action@master
         with:
@@ -26,13 +26,14 @@ jobs:
           # This should be the path to the paper within your repo.
           paper-path: paper.md
       - name: Upload
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: paper
           # This is the output path where Pandoc will write the compiled
           # PDF. Note, this should be the same directory as the input
           # paper.md
           path: paper.pdf
+          archive: false
 ```
 
 This will build the `paper.pdf` and make it available for download as an _Actions artifact_
